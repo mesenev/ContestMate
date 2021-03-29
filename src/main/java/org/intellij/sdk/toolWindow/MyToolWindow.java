@@ -6,7 +6,11 @@ import com.intellij.openapi.wm.ToolWindow;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import org.json.*;
+
 import java.util.List;
 
 public class MyToolWindow {
@@ -19,11 +23,8 @@ public class MyToolWindow {
     private JTable table1;
 
 
-    public MyToolWindow(ToolWindow toolWindow) {
-        List<String> list = new ArrayList<String>();
-        list.add("Bodgan Kovalchuk");
-        list.add("Byki i korovy");
-        list.add("AM");
+    public MyToolWindow(ToolWindow toolWindow) throws IOException {
+        Process executable = Runtime.getRuntime().exec("python C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\test.py");
         String[] columnNames = {"username", "task", "result"};
         Object[][] data = {
                 {"Petr Losev", "Bridges",
