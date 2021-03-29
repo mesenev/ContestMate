@@ -1,0 +1,36 @@
+1321111 
+27-3 
+5289015 
+plugin user one 
+https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5289015;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72 
+WA 
+1321111 
+27-3 
+5288995 
+plugin user two 
+https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5288995;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72 
+OK 
+1321111 
+27-3 
+5288988 
+plugin user two 
+https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5288988;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72 
+RE 
+1320802 
+27-1 
+5287424 
+plugin jury 
+https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5287424;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72 
+WA 
+3274 
+0 - a, 1 - ab 
+5287316 
+plugin jury 
+https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5287316;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72 
+WA 
+3274 
+0 - a, 1 - ab 
+5287280 
+plugin jury 
+https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5287280;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72 
+IL 

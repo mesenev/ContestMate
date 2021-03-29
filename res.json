@@ -1,0 +1,52 @@
+{
+    "submit": [
+        {
+            "id_problem": 1321111,
+            "problem_name": "27-3",
+            "id_submit": 5289015,
+            "username": "plugin user one",
+            "content_link": "https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5289015;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72",
+            "current_status": "WA"
+        },
+        {
+            "id_problem": 1321111,
+            "problem_name": "27-3",
+            "id_submit": 5288995,
+            "username": "plugin user two",
+            "content_link": "https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5288995;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72",
+            "current_status": "OK"
+        },
+        {
+            "id_problem": 1321111,
+            "problem_name": "27-3",
+            "id_submit": 5288988,
+            "username": "plugin user two",
+            "content_link": "https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5288988;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72",
+            "current_status": "RE"
+        },
+        {
+            "id_problem": 1320802,
+            "problem_name": "27-1",
+            "id_submit": 5287424,
+            "username": "plugin jury",
+            "content_link": "https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5287424;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72",
+            "current_status": "WA"
+        },
+        {
+            "id_problem": 3274,
+            "problem_name": "0 - a, 1 - ab",
+            "id_submit": 5287316,
+            "username": "plugin jury",
+            "content_link": "https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5287316;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72",
+            "current_status": "WA"
+        },
+        {
+            "id_problem": 3274,
+            "problem_name": "0 - a, 1 - ab",
+            "id_submit": 5287280,
+            "username": "plugin jury",
+            "content_link": "https://imcs.dvfu.ru/cats/?f=download_source;cid=5287221;rid=5287280;sid=z3XkbVpSEtMNKJoypMzR8R0STMtl72",
+            "current_status": "IL"
+        }
+    ]
+}
