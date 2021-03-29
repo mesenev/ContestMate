@@ -9,11 +9,17 @@ import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.*;
 
 
-public class MyToolWindow {
+public class ContentMate {
+
+    private void make_json() throws IOException {
+        Process executable = Runtime.getRuntime().exec("python C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\test.py");
+    }
 
     private JPanel myToolWindowContent;
     private JComboBox comboBox1;
@@ -22,24 +28,25 @@ public class MyToolWindow {
     private JButton button1;
     private JTable table1;
 
+    public String[] columnNames = {"username", "task", "result"};
 
-    public MyToolWindow(ToolWindow toolWindow) throws IOException {
-        Process executable = Runtime.getRuntime().exec("python C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\test.py");
-        String[] columnNames = {"username", "task", "result"};
-        Object[][] data = {{"a", "s", "d"}, {"s", "m", "l"}};
+
+    public ContentMate(ToolWindow toolWindow) throws IOException {
+        make_json();
+        List<String> list = new ArrayList<>();
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames);
 
         String jsonString = new String(Files.readAllBytes(Paths.get("res.json")));
         JSONObject obj = new JSONObject(jsonString);
         JSONArray arr = obj.getJSONArray("submit");
         for (int i = 0; i < arr.length(); i++) {
-            String username = arr.getJSONObject(i).getString("username");
-            System.out.println(username);
-            String problem = arr.getJSONObject(i).getString("problem_name");
-            System.out.println(problem);
-            String result = arr.getJSONObject(i).getString("current_status");
-            System.out.println(result);
+            list.add(arr.getJSONObject(i).getString("username"));
+            list.add(arr.getJSONObject(i).getString("problem_name"));
+            list.add(arr.getJSONObject(i).getString("current_status"));
+            model.addRow(list.toArray());
+            list.clear();
         }
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
         table1.setModel(model);
     }
 

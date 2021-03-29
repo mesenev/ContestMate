@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
-public class MyToolWindowFactory implements ToolWindowFactory {
+public class ContentMateFactory implements ToolWindowFactory {
 
   /**
    * Create the tool window content.
@@ -20,15 +20,15 @@ public class MyToolWindowFactory implements ToolWindowFactory {
    * @param toolWindow current tool window
    */
   public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
-    MyToolWindow myToolWindow = null;
+    ContentMate contentMate = null;
     try {
-      myToolWindow = new MyToolWindow(toolWindow);
+      contentMate = new ContentMate(toolWindow);
     } catch (IOException e) {
       e.printStackTrace();
     }
     ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
     Content content = contentFactory.createContent(
-            myToolWindow.getContent(), "", false
+            contentMate.getContent(), "", false
     );
     toolWindow.getContentManager().addContent(content);
   }
