@@ -7,11 +7,11 @@ import com.intellij.openapi.wm.ToolWindow;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import org.json.*;
 
-import java.util.List;
 
 public class MyToolWindow {
 
@@ -26,16 +26,19 @@ public class MyToolWindow {
     public MyToolWindow(ToolWindow toolWindow) throws IOException {
         Process executable = Runtime.getRuntime().exec("python C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\test.py");
         String[] columnNames = {"username", "task", "result"};
-        Object[][] data = {
-                {"Petr Losev", "Bridges",
-                        "AW"},
-                {"Darya Fedotova", "Stones",
-                        "OK"},
-                {"Pavel Rudnik", "Django",
-                        "CE"},
-                {"Bogdan Kovalchuk", "Pygame",
-                        "RE"},
-        };
+        Object[][] data = {{"a", "s", "d"}, {"s", "m", "l"}};
+
+        String jsonString = new String(Files.readAllBytes(Paths.get("res.json")));
+        JSONObject obj = new JSONObject(jsonString);
+        JSONArray arr = obj.getJSONArray("submit");
+        for (int i = 0; i < arr.length(); i++) {
+            String username = arr.getJSONObject(i).getString("username");
+            System.out.println(username);
+            String problem = arr.getJSONObject(i).getString("problem_name");
+            System.out.println(problem);
+            String result = arr.getJSONObject(i).getString("current_status");
+            System.out.println(result);
+        }
         DefaultTableModel model = new DefaultTableModel(data, columnNames);
         table1.setModel(model);
     }
