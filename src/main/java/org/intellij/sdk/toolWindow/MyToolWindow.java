@@ -6,10 +6,8 @@ import com.intellij.openapi.wm.ToolWindow;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 public class MyToolWindow {
 
@@ -26,10 +24,18 @@ public class MyToolWindow {
         list.add("Bodgan Kovalchuk");
         list.add("Byki i korovy");
         list.add("AM");
-        Object[] columnsHeader = new String[] {"Наименование", "Ед.измерения", "Количество"};
-        DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(columnsHeader);
-        model.addRow(list.toArray());
+        String[] columnNames = {"username", "task", "result"};
+        Object[][] data = {
+                {"Petr Losev", "Bridges",
+                        "AW"},
+                {"Darya Fedotova", "Stones",
+                        "OK"},
+                {"Pavel Rudnik", "Django",
+                        "CE"},
+                {"Bogdan Kovalchuk", "Pygame",
+                        "RE"},
+        };
+        DefaultTableModel model = new DefaultTableModel(data, columnNames);
         table1.setModel(model);
     }
 
