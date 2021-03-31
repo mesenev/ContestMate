@@ -11,7 +11,6 @@ def get_all_problems(tournament, sid):
         problems[i['id']] = i['name']
     return problems
 
-
 def get_submits(tournament, sid):
     response = requests.get(f"https://imcs.dvfu.ru/cats/?f=console;cid={tournament};json=1;sid={sid}")
     a = response.json()
@@ -48,13 +47,10 @@ def get_all_info(tournament, sid):
     return all_info
 
 
-sid = "WJMYHREsFn1z3fGQIIW8aPYfVJXXep"
+sid = "BMSYI8VGR1oQexhPlensd4OsGKGJel"
 tournament = "5287221"
 
 a = get_all_info(tournament, sid)
 b = dict()
-out_file = open('res.json', 'w')
 b["submit"] = a
-print(b)
-json.dump(b, out_file, indent=4, sort_keys=False)
-out_file.close()
+print(json.dumps(b, indent=4, sort_keys=False))
