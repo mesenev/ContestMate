@@ -51,7 +51,6 @@ public class ContentMate {
         URL url = new URL(urlString);
         String filename = name;
         String suffix = username;
-        System.out.println();
         InputStream inputStream = url.openStream();
         Path tempFile = Files.createTempFile(filename, suffix);
         Path target = Paths.get(downloadDirectory + "/" + filename + suffix);
@@ -103,7 +102,6 @@ public class ContentMate {
                 int index = table1.getSelectedRow();
                 Submit submit = model.data.get(index);
                 String pathtofile = "C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\src\\main\\files\\" + submit.id_submit + submit.id_problem;
-                System.out.println(submit.content_link);
                 @Nullable VirtualFile file = LocalFileSystem.getInstance().findFileByPath(pathtofile);
                 FileEditorManager.getInstance(ProjectManager.getInstance().getOpenProjects()[0]).openFile(file, true);
             }
