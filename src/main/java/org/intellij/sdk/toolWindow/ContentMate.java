@@ -4,6 +4,7 @@ package org.intellij.sdk.toolWindow;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.DataProvider;
 import com.intellij.openapi.actionSystem.ex.AnActionListener;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
@@ -27,11 +28,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.*;
 
 
-public class ContentMate {
+public class ContentMate implements DataProvider {
 
 
     private JPanel myToolWindowContent;
@@ -39,7 +41,7 @@ public class ContentMate {
     private JTextField textField1;
     private JTextField textField2;
     private JButton loadButton;
-    private JTable table1;
+    public JTable table1;
     public List<Submit> data_submits = new ArrayList<>();
 
     public String[] columnNames = {"Username", "Task", "Result"};
@@ -59,31 +61,31 @@ public class ContentMate {
 
 
     public ContentMate(ToolWindow toolWindow) throws IOException {
-        make_json();
-        JSONObject obj = new JSONObject(jsonString.toString());
-        JSONArray arr = obj.getJSONArray("submit");
-        for (int i = 0; i < arr.length(); i++) {
-            Submit a = new Submit(
-                    arr.getJSONObject(i).getInt("id_problem"),
-                    arr.getJSONObject(i).getString("problem_name"),
-                    arr.getJSONObject(i).getInt("id_submit"),
-                    arr.getJSONObject(i).getString("username"),
-                    arr.getJSONObject(i).getString("content_link"),
-                    arr.getJSONObject(i).getString("current_status")
-            );
-            data_submits.add(a);
-        }
-        SubmitTableModel model = new SubmitTableModel(data_submits);
-        table1.setModel(model);
-        table1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        ListSelectionModel selectionModel = table1.getSelectionModel();
-        selectionModel.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                @Nullable VirtualFile file = LocalFileSystem.getInstance().findFileByPath("C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\settings.gradle");
-                FileEditorManager.getInstance(ProjectManager.getInstance().getOpenProjects()[0]).openFile(file, true);
-            }
-        });
+//        make_json();
+//        JSONObject obj = new JSONObject(jsonString.toString());
+//        JSONArray arr = obj.getJSONArray("submit");
+//        for (int i = 0; i < arr.length(); i++) {
+//            Submit a = new Submit(
+//                    arr.getJSONObject(i).getInt("id_problem"),
+//                    arr.getJSONObject(i).getString("problem_name"),
+//                    arr.getJSONObject(i).getInt("id_submit"),
+//                    arr.getJSONObject(i).getString("username"),
+//                    arr.getJSONObject(i).getString("content_link"),
+//                    arr.getJSONObject(i).getString("current_status")
+//            );
+//            data_submits.add(a);
+//        }
+//        SubmitTableModel model = new SubmitTableModel(data_submits);
+//        table1.setModel(model);
+//        table1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+//        ListSelectionModel selectionModel = table1.getSelectionModel();
+//        selectionModel.addListSelectionListener(new ListSelectionListener() {
+//            @Override
+//            public void valueChanged(ListSelectionEvent e) {
+//                @Nullable VirtualFile file = LocalFileSystem.getInstance().findFileByPath("C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\settings.gradle");
+//                FileEditorManager.getInstance(ProjectManager.getInstance().getOpenProjects()[0]).openFile(file, true);
+//            }
+//        });
 
     }
 
@@ -96,5 +98,10 @@ public class ContentMate {
 
     public JPanel getContent() {
         return myToolWindowContent;
+    }
+
+    @Override
+    public @Nullable Object getData(@NotNull String dataId) {
+        return table1.getSelectedRow();
     }
 }
