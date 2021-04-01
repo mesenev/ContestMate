@@ -11,7 +11,7 @@ public class SubmitTableModel implements TableModel {
 
     private Set<TableModelListener> listeners = new HashSet<TableModelListener>();
 
-    private List<Submit> data;
+    public List<Submit> data;
 
     public SubmitTableModel(List<Submit> data) {
         this.data = data;
@@ -55,7 +55,7 @@ public class SubmitTableModel implements TableModel {
             case 2:
                 return element.current_status;
         }
-        return "";
+        return element;
     }
 
     public boolean isCellEditable(int rowIndex, int columnIndex) {

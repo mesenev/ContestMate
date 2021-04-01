@@ -49,12 +49,13 @@ public class ContentMate {
 
     public static Path downloadFile(String urlString, Path downloadDirectory, String name, String username) throws IOException {
         URL url = new URL(urlString);
-        String filename = username;
-        String suffix = name;
+        String filename = name;
+        String suffix = username;
+        System.out.println();
         InputStream inputStream = url.openStream();
         Path tempFile = Files.createTempFile(filename, suffix);
         Path target = Paths.get(downloadDirectory + "/" + filename + suffix);
-        if (!tempFile.toFile().exists()) {
+        if (!target.toFile().exists()) {
             Files.copy(inputStream, tempFile, StandardCopyOption.REPLACE_EXISTING);
             Files.move(tempFile, target);
         }
@@ -88,7 +89,7 @@ public class ContentMate {
                     arr.getJSONObject(i).getString("content_link"),
                     arr.getJSONObject(i).getString("current_status")
             );
-            downloadFile(a.content_link, Paths.get("C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\src\\main\\files"), String.valueOf(a.id_submit), a.username);
+            downloadFile(a.content_link, Paths.get("C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\src\\main\\files"), String.valueOf(a.id_submit), String.valueOf(a.id_problem));
             data_submits.add(a);
 
         }
@@ -99,15 +100,13 @@ public class ContentMate {
         selectionModel.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                System.out.println(model.getColumnName(e.getLastIndex()));
+                int index = table1.getSelectedRow();
+                Submit submit = model.data.get(index);
+                String pathtofile = "C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\src\\main\\files\\" + submit.id_submit + submit.id_problem;
+                System.out.println(submit.content_link);
+                @Nullable VirtualFile file = LocalFileSystem.getInstance().findFileByPath(pathtofile);
+                FileEditorManager.getInstance(ProjectManager.getInstance().getOpenProjects()[0]).openFile(file, true);
             }
-        });
-
-    }
-
-    private void openSolutionFile() {
-        Thread newThread = new Thread(() -> {
-
         });
 
     }
