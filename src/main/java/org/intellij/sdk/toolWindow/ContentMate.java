@@ -18,12 +18,14 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,14 +44,28 @@ public class ContentMate {
     private JTable table1;
     public List<Submit> data_submits = new ArrayList<>();
 
-    public String[] columnNames = {"Username", "Task", "Result"};
+    public String[] columnNames = {"Username", "Task", "Result", "Loaded"};
     public StringBuilder jsonString = new StringBuilder();
+
+    public static Path downloadFile(String urlString, Path downloadDirectory, String name, String username) throws IOException {
+        URL url = new URL(urlString);
+        String filename = username;
+        String suffix = name;
+        InputStream inputStream = url.openStream();
+        Path tempFile = Files.createTempFile(filename, suffix);
+        Files.copy(inputStream, tempFile, StandardCopyOption.REPLACE_EXISTING);
+        Path target = Paths.get(downloadDirectory + "/" + filename + suffix);
+        Files.move(tempFile, target);
+
+        return target;
+    }
 
 
     public void make_json() throws IOException {
         String line;
 
         Process executable = Runtime.getRuntime().exec("python C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\test.py");
+
         BufferedReader is = new BufferedReader(new InputStreamReader(executable.getInputStream()));
 
         while ((line = is.readLine()) != null) {
@@ -71,7 +87,9 @@ public class ContentMate {
                     arr.getJSONObject(i).getString("content_link"),
                     arr.getJSONObject(i).getString("current_status")
             );
+            downloadFile(a.content_link, Paths.get("C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\src\\main\\files"), String.valueOf(a.id_submit), a.username);
             data_submits.add(a);
+
         }
         SubmitTableModel model = new SubmitTableModel(data_submits);
         table1.setModel(model);

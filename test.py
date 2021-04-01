@@ -47,7 +47,7 @@ def get_all_info(tournament, sid):
     return all_info
 
 
-sid = "BMSYI8VGR1oQexhPlensd4OsGKGJel"
+sid = "PSJ4105XpXthrNy6qwjPQjWVLLoFbK"
 tournament = "5287221"
 
 a = get_all_info(tournament, sid)
