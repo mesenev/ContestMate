@@ -53,10 +53,11 @@ public class ContentMate {
         String suffix = name;
         InputStream inputStream = url.openStream();
         Path tempFile = Files.createTempFile(filename, suffix);
-        Files.copy(inputStream, tempFile, StandardCopyOption.REPLACE_EXISTING);
         Path target = Paths.get(downloadDirectory + "/" + filename + suffix);
-        Files.move(tempFile, target);
-
+        if (!tempFile.toFile().exists()) {
+            Files.copy(inputStream, tempFile, StandardCopyOption.REPLACE_EXISTING);
+            Files.move(tempFile, target);
+        }
         return target;
     }
 
@@ -98,8 +99,7 @@ public class ContentMate {
         selectionModel.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                @Nullable VirtualFile file = LocalFileSystem.getInstance().findFileByPath("C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\settings.gradle");
-                FileEditorManager.getInstance(ProjectManager.getInstance().getOpenProjects()[0]).openFile(file, true);
+                System.out.println(model.getColumnName(e.getLastIndex()));
             }
         });
 
