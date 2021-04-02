@@ -74,7 +74,6 @@ public class ContentMate {
         }
     }
 
-
     public ContentMate(ToolWindow toolWindow) throws IOException {
         make_json();
         JSONObject obj = new JSONObject(jsonString.toString());
@@ -95,6 +94,7 @@ public class ContentMate {
         SubmitTableModel model = new SubmitTableModel(data_submits);
         table1.setModel(model);
         table1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
         ListSelectionModel selectionModel = table1.getSelectionModel();
         selectionModel.addListSelectionListener(new ListSelectionListener() {
             @Override
