@@ -1,5 +1,6 @@
-import requests
 import sys
+
+import requests
 
 
 def click_button(url, res):
