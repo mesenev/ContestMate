@@ -11,7 +11,7 @@ public class SubmitTableModel implements TableModel {
 
     private Set<TableModelListener> listeners = new HashSet<TableModelListener>();
 
-    private List<Submit> data;
+    public List<Submit> data;
 
     public SubmitTableModel(List<Submit> data) {
         this.data = data;
@@ -68,6 +68,10 @@ public class SubmitTableModel implements TableModel {
 
     public void setValueAt(Object value, int rowIndex, int columnIndex) {
 
+    }
+
+    public void reset() {
+        data.clear();
     }
 
 }
