@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class SubmitTableModel implements TableModel {
 
-    private Set<TableModelListener> listeners = new HashSet<TableModelListener>();
+    private final Set<TableModelListener> listeners = new HashSet<TableModelListener>();
 
     public List<Submit> data;
 
@@ -73,5 +73,4 @@ public class SubmitTableModel implements TableModel {
     public void reset() {
         data.clear();
     }
-
 }
