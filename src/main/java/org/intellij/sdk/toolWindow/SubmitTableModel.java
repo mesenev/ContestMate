@@ -70,4 +70,8 @@ public class SubmitTableModel implements TableModel {
 
     }
 
+    public void reset() {
+        data.clear();
+    }
+
 }
