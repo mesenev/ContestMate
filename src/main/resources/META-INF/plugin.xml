@@ -43,5 +43,10 @@
         <add-to-group group-id="popup@BookmarkContextMenu" anchor="first"/>
         <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt A"/>
       </action>
+      <action class="org.intellij.sdk.toolWindow.actions.DeclineSubmitAction" id="org.intellij.sdk.toolWindow.actions.DeclineSubmitAction" description="Decline selected submit"
+              text="DeclineSubmit">
+        <add-to-group group-id="popup@BookmarkContextMenu" anchor="first"/>
+        <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt D"/>
+      </action>
     </actions>
 </idea-plugin>
