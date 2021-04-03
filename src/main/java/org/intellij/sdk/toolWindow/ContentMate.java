@@ -33,6 +33,9 @@ import java.util.List;
 public class ContentMate {
 
 
+    //AppSettingsState settings = AppSettingsState.getInstance();
+    //System.out.println(settings.script1_makeJson_settings);
+
     private JPanel myToolWindowContent;
     private JComboBox comboBox1;
     private JTextField textField1;

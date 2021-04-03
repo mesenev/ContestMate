@@ -31,6 +31,17 @@
   <!-- Text to display as company information on Preferences/Settings | Plugin page -->
   <vendor url="github.com">Developers :D</vendor>
 
+
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceImplementation="org.intellij.sdk.toolWindow.AppSettingsState"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationConfigurable parentId="tools" instance="org.intellij.sdk.toolWindow.AppSettingsConfigurable"
+                             id="org.intellij.sdk.settings.AppSettingsConfigurable"
+                             displayName="SDK: Application Settings Example"/>
+  </extensions>
+
   <extensions defaultExtensionNs="com.intellij">
     <toolWindow id="ContentMate" secondary="false" icon="AllIcons.General.Modified" anchor="right"
                 factoryClass="org.intellij.sdk.toolWindow.ContentMateFactory"/>
