@@ -83,6 +83,7 @@ public class ContentMate {
                     model.reset();
                     make_json();
                     table1.setModel(model);
+                    table1.transferFocus();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -97,7 +98,7 @@ public class ContentMate {
     public void make_json() throws IOException {
         data_submits.clear();
         jsonString.setLength(0);
-        Process executable = Runtime.getRuntime().exec("python C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\test.py");
+        Process executable = Runtime.getRuntime().exec("python C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\makeJSON.py");
         BufferedReader is = new BufferedReader(new InputStreamReader(executable.getInputStream()));
 
         while ((line = is.readLine()) != null) {
