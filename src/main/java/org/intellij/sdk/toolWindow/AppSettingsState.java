@@ -23,6 +23,7 @@ public class AppSettingsState implements PersistentStateComponent<AppSettingsSta
     public String script2_setting = "python OK_script.py";
     public String script3_setting = "python WA_script.py";
     public String sid = "dfnjdfdhfskjj";
+    public String tournament = "645656";
     public boolean ideaStatus = false;
 
     public static AppSettingsState getInstance() {

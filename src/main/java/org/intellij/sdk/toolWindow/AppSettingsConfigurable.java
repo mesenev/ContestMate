@@ -41,8 +41,8 @@ public class AppSettingsConfigurable implements Configurable {
         boolean modified2 = !mySettingsComponent.getUserNameText().equals(settings.script2_setting);
         boolean modified3 = !mySettingsComponent.getUserNameText().equals(settings.script3_setting);
         boolean modified4 = !mySettingsComponent.getUserNameText().equals(settings.sid);
-        modified |= mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus;
-        modified2 |= mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus;
+        modified |= (mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus) | (mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus);
+        //modified2 |= mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus;
         modified3 |= mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus;
         modified4 |= mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus;
         return modified;
@@ -56,6 +56,7 @@ public class AppSettingsConfigurable implements Configurable {
         settings.script2_setting = mySettingsComponent.getUserNameText2();
         settings.script3_setting = mySettingsComponent.getUserNameText3();
         settings.sid = mySettingsComponent.getUserNameTextSid();
+        settings.tournament = mySettingsComponent.getUserNameTextTournament();
     }
 
     @Override
@@ -66,6 +67,7 @@ public class AppSettingsConfigurable implements Configurable {
         mySettingsComponent.setUserNameText2(settings.script2_setting);
         mySettingsComponent.setUserNameText3(settings.script3_setting);
         mySettingsComponent.setUserNameTextSid(settings.sid);
+        mySettingsComponent.setUserNameTextTournament(settings.tournament);
     }
 
     @Override

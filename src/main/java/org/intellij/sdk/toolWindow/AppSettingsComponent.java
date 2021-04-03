@@ -14,6 +14,7 @@ public class AppSettingsComponent {
     private final JBTextField script2 = new JBTextField();
     private final JBTextField script3 = new JBTextField();
     private final JBTextField sid = new JBTextField();
+    private final JBTextField Tournament = new JBTextField();
     private final JBCheckBox myIdeaUserStatus = new JBCheckBox("Do you use IntelliJ IDEA? ");
 
     public AppSettingsComponent() {
@@ -22,6 +23,7 @@ public class AppSettingsComponent {
                 .addLabeledComponent(new JBLabel("Script 2: "), script2)
                 .addLabeledComponent(new JBLabel("Script 3: "), script3)
                 .addLabeledComponent(new JBLabel("Sid: "), sid)
+                .addLabeledComponent(new JBLabel("Tournament: "), Tournament)
                 //.addComponent(myIdeaUserStatus, 1)
                 .addComponentFillVertically(new JPanel(), 0)
                 .getPanel();
@@ -90,6 +92,21 @@ public class AppSettingsComponent {
         sid.setText(newText);
     }
     //4
+
+    //5
+    public JComponent getPreferredFocusedComponentTournament() {
+        return Tournament;
+    }
+
+    @NotNull
+    public String getUserNameTextTournament() {
+        return Tournament.getText();
+    }
+
+    public void setUserNameTextTournament(@NotNull String newText) {
+        Tournament.setText(newText);
+    }
+    //5
 
     public boolean getIdeaUserStatus() {
         return myIdeaUserStatus.isSelected();
