@@ -2,6 +2,8 @@
 
 package org.intellij.sdk.toolWindow;
 
+import com.intellij.ide.impl.DataManagerImpl;
+import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
@@ -27,10 +29,14 @@ public class ContentMateFactory implements ToolWindowFactory {
       e.printStackTrace();
     }
     ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
+
     Content content = contentFactory.createContent(
             contentMate.getContent(), "", false
     );
     toolWindow.getContentManager().addContent(content);
+    DataManagerImpl manager = (DataManagerImpl) DataManagerImpl.getInstance();
+    DataManagerImpl.MyDataContext dataContext = (DataManagerImpl.MyDataContext) manager.getDataContext();
+
   }
 
 }

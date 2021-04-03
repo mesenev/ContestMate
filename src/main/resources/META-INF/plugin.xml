@@ -36,4 +36,12 @@
                 factoryClass="org.intellij.sdk.toolWindow.ContentMateFactory"/>
   </extensions>
 
+    <actions>
+      <action id="org.intellij.sdk.toolWindow.actions.ApproveSubmitAction"
+              class="org.intellij.sdk.toolWindow.actions.ApproveSubmitAction" text="ApproveSubmit"
+              description="Approve selected submit as correct one">
+        <add-to-group group-id="popup@BookmarkContextMenu" anchor="first"/>
+        <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt A"/>
+      </action>
+    </actions>
 </idea-plugin>

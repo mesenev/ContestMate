@@ -1,6 +1,6 @@
-import requests
-import sys
 import json
+
+import requests
 
 
 def get_all_problems(tournament, sid):
@@ -47,7 +47,7 @@ def get_all_info(tournament, sid):
     return all_info
 
 
-sid = "BMSYI8VGR1oQexhPlensd4OsGKGJel"
+sid = "XWq3nAzNeTnOW2y7wXy2VNACuK0cZF"
 tournament = "5287221"
 
 a = get_all_info(tournament, sid)
