@@ -19,11 +19,11 @@ import org.jetbrains.annotations.Nullable;
 )
 
 public class AppSettingsState implements PersistentStateComponent<AppSettingsState> {
-    public String script1_makeJson_settings = "python makeJSON.py";
-    public String script2_setting = "python OK_script.py";
-    public String script3_setting = "python WA_script.py";
-    public String sid = "dfnjdfdhfskjj";
-    public String tournament = "645656";
+    public String script1_makeJson_settings = "python C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\makeJSON.py ";
+    public String ok_script = "python C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\OK_script.py ";
+    public String wa_script = "python C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\WA_script.py ";
+    public String sid = "INdq61Hs5ch4gPjN6rKuZjv1nEEZn6 ";
+    public String tournament = "5287221 ";
     public boolean ideaStatus = false;
 
     public static AppSettingsState getInstance() {

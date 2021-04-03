@@ -3,7 +3,7 @@ import sys
 import requests
 
 
-def click_button(url, res):
+def change_state(url, res):
     request = f'set_state=1&state={res}&failed_test=%C2%A0&points='
 
     boop = requests.post(
@@ -13,7 +13,4 @@ def click_button(url, res):
     )
 
 
-sid = "XWq3nAzNeTnOW2y7wXy2VNACuK0cZF"
-tournament = "5287221"
-click_button(f'https://imcs.dvfu.ru/cats/?f=request_params;cid={tournament};rid={sys.argv[1]};sid={sid}', 'WA')
-print("1")
+change_state(f'https://imcs.dvfu.ru/cats/?f=request_params;cid={sys.argv[2]};rid={sys.argv[3]};sid={sys.argv[1]}', 'WA')

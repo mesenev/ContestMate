@@ -1,4 +1,5 @@
 import json
+import sys
 
 import requests
 
@@ -47,10 +48,7 @@ def get_all_info(tournament, sid):
     return all_info
 
 
-sid = "XWq3nAzNeTnOW2y7wXy2VNACuK0cZF"
-tournament = "5287221"
-
-a = get_all_info(tournament, sid)
+a = get_all_info(sys.argv[2], sys.argv[1])
 b = dict()
 b["submit"] = a
 print(json.dumps(b, indent=4, sort_keys=False))

@@ -53,8 +53,8 @@ public class AppSettingsConfigurable implements Configurable {
         AppSettingsState settings = AppSettingsState.getInstance();
         settings.script1_makeJson_settings = mySettingsComponent.getUserNameText();
         settings.ideaStatus = mySettingsComponent.getIdeaUserStatus();
-        settings.script2_setting = mySettingsComponent.getUserNameText2();
-        settings.script3_setting = mySettingsComponent.getUserNameText3();
+        settings.ok_script = mySettingsComponent.getUserNameText2();
+        settings.wa_script = mySettingsComponent.getUserNameText3();
         settings.sid = mySettingsComponent.getUserNameTextSid();
         settings.tournament = mySettingsComponent.getUserNameTextTournament();
     }
@@ -64,8 +64,8 @@ public class AppSettingsConfigurable implements Configurable {
         AppSettingsState settings = AppSettingsState.getInstance();
         mySettingsComponent.setUserNameText(settings.script1_makeJson_settings);
         mySettingsComponent.setIdeaUserStatus(settings.ideaStatus);
-        mySettingsComponent.setUserNameText2(settings.script2_setting);
-        mySettingsComponent.setUserNameText3(settings.script3_setting);
+        mySettingsComponent.setUserNameText2(settings.ok_script);
+        mySettingsComponent.setUserNameText3(settings.wa_script);
         mySettingsComponent.setUserNameTextSid(settings.sid);
         mySettingsComponent.setUserNameTextTournament(settings.tournament);
     }

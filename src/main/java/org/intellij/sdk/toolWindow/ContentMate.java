@@ -33,7 +33,7 @@ import java.util.List;
 public class ContentMate {
 
 
-    //AppSettingsState settings = AppSettingsState.getInstance();
+    //
     //System.out.println(settings.script1_makeJson_settings);
 
     private JPanel myToolWindowContent;
@@ -42,6 +42,7 @@ public class ContentMate {
     private JTextField textField2;
     private JButton loadButton;
     private static Integer submitID;
+    public AppSettingsState settings = AppSettingsState.getInstance();
     public JTable table1;
     public List<Submit> data_submits = new ArrayList<>();
     public StringBuilder jsonString = new StringBuilder();
@@ -101,7 +102,7 @@ public class ContentMate {
     public void make_json() throws IOException {
         data_submits.clear();
         jsonString.setLength(0);
-        Process executable = Runtime.getRuntime().exec("python C:\\Users\\mrrla\\IdeaProjects\\ContestMate\\makeJSON.py");
+        Process executable = Runtime.getRuntime().exec(settings.script1_makeJson_settings + settings.sid + settings.tournament);
         BufferedReader is = new BufferedReader(new InputStreamReader(executable.getInputStream()));
 
         while ((line = is.readLine()) != null) {
