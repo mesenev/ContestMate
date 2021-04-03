@@ -19,7 +19,7 @@ public class AppSettingsConfigurable implements Configurable {
     @Nls(capitalization = Nls.Capitalization.Title)
     @Override
     public String getDisplayName() {
-        return "SDK: Application Settings Example";
+        return "Contestmate";
     }
 
     @Override
@@ -38,13 +38,13 @@ public class AppSettingsConfigurable implements Configurable {
     public boolean isModified() {
         AppSettingsState settings = AppSettingsState.getInstance();
         boolean modified = !mySettingsComponent.getUserNameText().equals(settings.script1_makeJson_settings);
-        boolean modified2 = !mySettingsComponent.getUserNameText().equals(settings.script2_setting);
-        boolean modified3 = !mySettingsComponent.getUserNameText().equals(settings.script3_setting);
-        boolean modified4 = !mySettingsComponent.getUserNameText().equals(settings.sid);
+        //boolean modified2 = !mySettingsComponent.getUserNameText().equals(settings.script2_setting);
+        //boolean modified3 = !mySettingsComponent.getUserNameText().equals(settings.script3_setting);
+        //boolean modified4 = !mySettingsComponent.getUserNameText().equals(settings.sid);
         modified |= (mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus) | (mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus);
         //modified2 |= mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus;
-        modified3 |= mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus;
-        modified4 |= mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus;
+        //modified3 |= mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus;
+        //modified4 |= mySettingsComponent.getIdeaUserStatus() != settings.ideaStatus;
         return modified;
     }
 

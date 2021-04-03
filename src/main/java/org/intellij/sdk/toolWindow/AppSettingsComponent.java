@@ -15,7 +15,7 @@ public class AppSettingsComponent {
     private final JBTextField script3 = new JBTextField();
     private final JBTextField sid = new JBTextField();
     private final JBTextField Tournament = new JBTextField();
-    private final JBCheckBox myIdeaUserStatus = new JBCheckBox("Do you use IntelliJ IDEA? ");
+    private final JBCheckBox myIdeaUserStatus = new JBCheckBox("Accept");
 
     public AppSettingsComponent() {
         myMainPanel = FormBuilder.createFormBuilder()
@@ -24,7 +24,7 @@ public class AppSettingsComponent {
                 .addLabeledComponent(new JBLabel("Script 3: "), script3)
                 .addLabeledComponent(new JBLabel("Sid: "), sid)
                 .addLabeledComponent(new JBLabel("Tournament: "), Tournament)
-                //.addComponent(myIdeaUserStatus, 1)
+                .addComponent(myIdeaUserStatus, 1)
                 .addComponentFillVertically(new JPanel(), 0)
                 .getPanel();
 

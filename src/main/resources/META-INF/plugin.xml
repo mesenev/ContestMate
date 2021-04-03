@@ -39,7 +39,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <applicationConfigurable parentId="tools" instance="org.intellij.sdk.toolWindow.AppSettingsConfigurable"
                              id="org.intellij.sdk.settings.AppSettingsConfigurable"
-                             displayName="SDK: Application Settings Example"/>
+                             displayName="ContestMate"/>
   </extensions>
 
   <extensions defaultExtensionNs="com.intellij">
